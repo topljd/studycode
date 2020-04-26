@@ -548,3 +548,8 @@ driver.get("https://www.baidu.com")
 下载与Chrome版本匹配的webdriver，浏览器版本与chromeDriver一致，但是打开谷歌仍然提示data;
 出现这种情况，其实只要把chromeDriver的位置从python的安装目录复制到Scripts中就可以了。
 
+> 5、当用无头参数的时候，可以获取到数据
+>
+> ```python
+> option.add_argument('-headless')
+> ```
