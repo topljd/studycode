@@ -148,4 +148,41 @@ def index4(request):
     '''
     print(connection.queries[-1])
 #'SELECT `book`.`id`, `book`.`name`, COUNT(`book_order`.`id`) AS `order_nums` FROM `book` LEFT OUTER JOIN `book_order` ON (`book`.`id` = `book_order`.`book_id`) GROUP BY `book`.`id` ORDER BY NULL'
+    print('+'*50)
+    books = Book.objects.values_list()
+    print(type(books))
+    #<class 'django.db.models.query.QuerySet'>
+    for book in books:
+        print(book)
+    '''返回的是元组数据
+    (1, '三国演义', 987, 98.0, 4.8, 3, 1)
+    (2, '水浒传', 967, 97.0, 4.83, 4, 1)
+    (3, '西游记', 1004, 95.0, 4.85, 2, 2)
+    (4, '红楼梦', 1007, 99.0, 4.9, 1, 2)
+    '''
+    print('=' * 50)
+    books = Book.objects.values_list('name',flat=True)
+    #只获取到name这个字段
+    print(type(books))
+    # <class 'django.db.models.query.QuerySet'>
+    for book in books:
+        print(book)
+    '''返回的是元组数据,如果元组只有一个元素，那么后边就会有一个逗号
+   ('三国演义',)
+    ('水浒传',)
+    ('西游记',)
+    ('红楼梦',)
+    使用flat=True后的数据，如果有两个字段就会出现错误
+    三国演义
+    水浒传
+    西游记
+    红楼梦
+    '''
     return HttpResponse('index4')
+
+def index5(request):
+    books = Book.objects.all()
+    for book in books:
+        print(book)#Book object (1)输出的是一个对象
+        print(book.id,book.name)#这里可以输出数据 4 红楼梦等
+    return HttpResponse("index5")
