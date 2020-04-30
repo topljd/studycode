@@ -186,3 +186,112 @@ def index5(request):
         print(book)#Book object (1)输出的是一个对象
         print(book.id,book.name)#这里可以输出数据 4 红楼梦等
     return HttpResponse("index5")
+
+#select_related 只会产生一查询，但是能实现多对多
+def index6(requeset):
+    #books = Book.objects.all()#应该是book关联的author字段中的名字，此时每次都需要查询语句有点浪费资源
+    books = Book.objects.select_related("author","publisher")#在一次查询中讲author查询出来了,这个地方只能使用外键的字段
+    for book in books:
+        #print(book.name)
+        print(book.author.name)
+        print(book.publisher.name)
+    '''
+    罗贯中
+    中国邮电出版社
+    施耐庵
+    中国邮电出版社
+    吴承恩
+    清华大学出版社
+    曹雪芹
+    清华大学出版社
+    '''
+    print(connection.queries[-1])
+    #'SELECT `author`.`id`, `author`.`name`, `author`.`age`, `author`.`email` FROM `author` WHERE `author`.`id` = 1 LIMIT 21'
+    return HttpResponse('index6')
+
+# prefetch_related的用法 需要查询两次，只会产生两次查询
+def index7(request):
+    # books = Book.objects.all()
+    # for book in books:
+    #     print('='*30)
+    #     print(book.name)
+    #     orders = book.bookorder_set.all()#sql语句查询的次数多了
+    #     #对象.模型类小写_set.all 访问1对多模型
+    #     for order in orders:
+    #         print(order.id)
+    #     '''
+    #     三国演义
+    #     1
+    #     2
+    #     3
+    #     ==============================
+    #     水浒传
+    #     4
+    #     5
+    #     ==============================
+    #     西游记
+    #     ==============================
+    #     红楼梦
+    #     '''
+    # print('*'*80)
+    # books = Book.objects.prefetch_related("bookorder_set")
+    # #将所有的book查询出来，更具book ID将订单查询出来！做了两次查询
+    # for book in books:
+    #     print('='*30)
+    #     print(book.name)
+    #     orders = book.bookorder_set.all()#sql语句查询的次数多了
+    #     #对象.模型类小写_set.all 访问1对多模型
+    #     for order in orders:
+    #         print(order.id)
+    # #print(connection.queries)
+    # #{'sql': 'SELECT `book`.`id`, `book`.`name`, `book`.`pages`, `book`.`price`, `book`.`rating`, `book`.`author_id`, `book`.`publisher_id` FROM `book`', 'time': '0.000'}, {'sql': 'SELECT `book_order`.`id`, `book_order`.`price`, `book_order`.`book_id` FROM `book_order` WHERE `book_order`.`book_id` IN (1, 2, 3, 4)', 'time': '0.000'}
+    #
+    # books = Book.objects.prefetch_related('author')
+    # for book in books:
+    #     print(book.author.name)
+    #     '''
+    #     罗贯中
+    #     施耐庵
+    #     吴承恩
+    #     曹雪芹
+    #     '''
+    # print(connection.queries)
+    #'SELECT `author`.`id`, `author`.`name`, `author`.`age`, `author`.`email` FROM `author` WHERE `author`.`id` IN (1, 2, 3, 4)'
+
+    #过滤价格大于90元的
+    #传统做法
+    # books =Book.objects.prefetch_related('bookorder_set')
+    # #如果使用prefetch_related的时候，就不能使用类似filter产生新sql语句的方法
+    # for book in books:
+    #   print('='*50)
+    #   print(book.name)
+    #   orders = book.bookorder_set.filter(price__gte=90)#因使用filter，所以prefetch_related失效
+    #   for order in orders:
+    #     print(order.id)
+    # print(connection.queries)
+    '''
+    三国演义
+    1
+    ==================================================
+    水浒传
+    4
+    5
+    ==================================================
+    西游记
+    ==================================================
+    红楼梦
+    [{'sql': 'SELECT @@SQL_AUTO_IS_NULL', 'time': '0.000'}, {'sql': 'SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED', 'time': '0.000'}, {'sql': 'SELECT `book`.`id`, `book`.`name`, `book`.`pages`, `book`.`price`, `book`.`rating`, `book`.`author_id`, `book`.`publisher_id` FROM `book`', 'time': '0.000'}, {'sql': 'SELECT `book_order`.`id`, `book_order`.`price`, `book_order`.`book_id` FROM `book_order` WHERE `book_order`.`book_id` IN (1, 2, 3, 4)', 'time': '0.000'}, {'sql': 'SELECT `book_order`.`id`, `book_order`.`price`, `book_order`.`book_id` FROM `book_order` WHERE (`book_order`.`book_id` = 1 AND `book_order`.`price` >= 90.0e0)', 'time': '0.000'}, {'sql': 'SELECT `book_order`.`id`, `book_order`.`price`, `book_order`.`book_id` FROM `book_order` WHERE (`book_order`.`book_id` = 2 AND `book_order`.`price` >= 90.0e0)', 'time': '0.000'}, {'sql': 'SELECT `book_order`.`id`, `book_order`.`price`, `book_order`.`book_id` FROM `book_order` WHERE (`book_order`.`book_id` = 3 AND `book_order`.`price` >= 90.0e0)', 'time': '0.000'}, {'sql': 'SELECT `book_order`.`id`, `book_order`.`price`, `book_order`.`book_id` FROM `book_order` WHERE (`book_order`.`book_id` = 4 AND `book_order`.`price` >= 90.0e0)', 'time': '0.000'}]
+        '''
+    #解决办法，使用Prefetch类
+    prefetch = Prefetch('bookorder_set',queryset=BookOrder.objects.filter(price__gte=90))
+    books = Book.objects.prefetch_related(prefetch)
+    for book in books:
+      print('='*50)
+      print(book.name)
+      orders = book.bookorder_set.all()
+      for order in orders:
+        print(order.id)
+    print(connection.queries)
+    #{'sql': 'SELECT `book`.`id`, `book`.`name`, `book`.`pages`, `book`.`price`, `book`.`rating`, `book`.`author_id`, `book`.`publisher_id` FROM `book`', 'time': '0.000'}, {'sql': 'SELECT `book_order`.`id`, `book_order`.`price`, `book_order`.`book_id` FROM `book_order` WHERE (`book_order`.`price` >= 90.0e0 AND `book_order`.`book_id` IN (1, 2, 3, 4))', 'time': '0.000'}
+
+    return HttpResponse('index7')
