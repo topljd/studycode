@@ -318,3 +318,140 @@ def index8(request):
     # {'sql': 'SELECT `book`.`id`, `book`.`name` FROM `book`', 'time': '0.000'}
 
     return HttpResponse('index8')
+
+def index9(request):
+    book = Book.objects.get(pk = 2)
+    #满足的条件只能有一个当有多个的时候或者没有值得时候就会报错！
+    print(book)
+    #Book object (2)
+    #水浒传
+    print(book.name)
+    #Book object (1)
+    print(connection.queries)
+    #'SELECT `book`.`id`, `book`.`name`, `book`.`pages`, `book`.`price`, `book`.`rating`, `book`.`author_id`, `book`.`publisher_id` FROM `book` WHERE `book`.`id` = 1 LIMIT 21'
+    return HttpResponse('index9')
+def index10(request):
+    #publisher = Publisher(name='知了出版社')
+    #publisher.save()
+    #print(connection.queries[2:])
+    #[{'sql': "INSERT INTO `publisher` (`name`) VALUES ('知了出版社')", 'time': '0.032'}]
+
+    publisher = Publisher.objects.create(name='知了课堂出版社')#相当于上面的两行代码
+    print(connection.queries[2:])
+    #[{'sql': "INSERT INTO `publisher` (`name`) VALUES ('知了课堂出版社')", 'time': '0.031'}]
+
+    return HttpResponse('index10')
+
+def index11(request):
+    #result = Publisher.objects.get_or_create(name = '知了出版社')
+    #(<Publisher: Publisher object (3)>, False)  知了出版社存在，就不会创建
+    #print(result)
+
+    #如果数据不存在
+    #result = Publisher.objects.get_or_create(name='知了ABC出版社')
+    #(<Publisher: Publisher object (5)>, True)
+    #print(result)
+
+
+    #创建多个出版社bulk_create 一次创建多个数据
+    publisher = Publisher.objects.bulk_create(
+        [
+            Publisher(name = '123出版社'),
+            Publisher(name='abc出版社'),
+        ]
+    )
+
+    return HttpResponse('index11')
+def index12(request):
+    #books=Book.objects.all()
+    #print(len(books))#4
+    #print(connection.queries)
+    #'SELECT `book`.`id`, `book`.`name`, `book`.`pages`, `book`.`price`, `book`.`rating`, `book`.`author_id`, `book`.`publisher_id` FROM `book`'
+
+    # count = Book.objects.count()
+    # print(count)#4
+    # print(connection.queries)
+    #SELECT COUNT(*) AS `__count` FROM `book`
+
+    result = Book.objects.filter(name = '三国演义').exists()
+    print(result)#True  如果数据存在则返回True否则返回False
+    print(connection.queries)
+    #"SELECT (1) AS `a` FROM `book` WHERE `book`.`name` = '三国演义' LIMIT 1"
+
+
+    return HttpResponse('index12')
+
+def index13(request):
+    #books = Book.objects.filter(bookorder__price__gte=80)
+    '''
+    Book object (1)
+    Book object (1)
+    Book object (1)
+    Book object (2)
+    Book object (2)
+    '''
+    # for book in books:
+    #     print(book)
+    # print(connection.queries)
+    #'SELECT `book`.`id`, `book`.`name`, `book`.`pages`, `book`.`price`, `book`.`rating`, `book`.`author_id`, `book`.`publisher_id` FROM `book` INNER JOIN `book_order` ON (`book`.`id` = `book_order`.`book_id`) WHERE `book_order`.`price` >= 80.0e0'
+    # books = Book.objects.filter(bookorder__price__gte=80).distinct()
+    # for book in books:
+    #     print(book)
+    # '''
+    # Book object (1)
+    # Book object (2)
+    # '''
+    # print(connection.queries)
+    #'SELECT DISTINCT `book`.`id`, `book`.`name`, `book`.`pages`, `book`.`price`, `book`.`rating`, `book`.`author_id`, `book`.`publisher_id` FROM `book` INNER JOIN `book_order` ON (`book`.`id` = `book_order`.`book_id`) WHERE `book_order`.`price` >= 80.0e0'
+    books = Book.objects.annotate(order_price=F('bookorder__price')).filter(bookorder__price__gte=80).distinct()
+    #此时不能删除重复的图书，图书销售的价格是不一样的，所以都输出。distinct就会失去作用
+    for book in books:
+        print(book)
+    '''
+    Book object (1)
+    Book object (1)
+    Book object (1)
+    Book object (2)
+    Book object (2)
+    '''
+    print(connection.queries)
+    #'SELECT DISTINCT `book`.`id`, `book`.`name`, `book`.`pages`, `book`.`price`, `book`.`rating`, `book`.`author_id`, `book`.`publisher_id`, `book_order`.`price` AS `order_price` FROM `book` LEFT OUTER JOIN `book_order` ON (`book`.`id` = `book_order`.`book_id`) INNER JOIN `book_order` T3 ON (`book`.`id` = T3.`book_id`) WHERE T3.`price` >= 80.0e0'
+    return HttpResponse('index13')
+
+def index14(request):
+    #一般de
+    books = Book.objects.all()
+    # for book in books:
+    #     book.price = book.price + 5
+    #     book.save()
+    # Book.objects.update(price=F('price')+5)#F('price') 获取原来的价格 + 5元
+    # print(connection.queries)
+    #'UPDATE `book` SET `price` = (`book`.`price` + 5)'
+
+    #Author.objects.filter(id__gte=3).delete()
+
+
+    return HttpResponse('index14')
+
+def index15(request):
+    #0,1 = [0:2]
+    books = Book.objects.get_queryset()[0:2]
+    for book in books:
+        print(book.name)
+    '''
+    三国演义
+    水浒传
+    '''
+    print(connection.queries)
+    #'SELECT `book`.`id`, `book`.`name`, `book`.`pages`, `book`.`price`, `book`.`rating`, `book`.`author_id`, `book`.`publisher_id` FROM `book` LIMIT 2'
+
+    #用all的方法
+    books = Book.objects.all()[0:3]
+    for book in books:
+        print(book)
+    '''
+    Book object (1)
+    Book object (2)
+    Book object (3)
+    '''
+    return HttpResponse('index15')

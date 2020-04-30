@@ -83,6 +83,8 @@ class Author(models.Model):
         managed = False
         db_table = 'author'
 
+def publisher_default():
+    return Publisher.objects.get_or_create(name ='默认的出版社')
 
 class Book(models.Model):
     name = models.CharField(max_length=300)
@@ -90,7 +92,7 @@ class Book(models.Model):
     price = models.FloatField()
     rating = models.FloatField()
     author = models.ForeignKey(Author, models.DO_NOTHING)
-    publisher = models.ForeignKey('Publisher', models.DO_NOTHING)
+    publisher = models.ForeignKey('Publisher', on_delete=models.SET_DEFAULT,default=publisher_default)
 
     class Meta:
         managed = False
