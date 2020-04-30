@@ -295,3 +295,26 @@ def index7(request):
     #{'sql': 'SELECT `book`.`id`, `book`.`name`, `book`.`pages`, `book`.`price`, `book`.`rating`, `book`.`author_id`, `book`.`publisher_id` FROM `book`', 'time': '0.000'}, {'sql': 'SELECT `book_order`.`id`, `book_order`.`price`, `book_order`.`book_id` FROM `book_order` WHERE (`book_order`.`price` >= 90.0e0 AND `book_order`.`book_id` IN (1, 2, 3, 4))', 'time': '0.000'}
 
     return HttpResponse('index7')
+
+def index8(request):
+    """
+    defer:排除（不能排除id）
+    only:只包含
+    """
+    books = Book.objects.defer("name")
+    for book in books:
+        print(book.id)
+        #print(book.name)会查询到但是会重新查询数据库了，会浪费资源
+        print(type(book))#<class 'front.models.Book'> 类的模型
+    print(connection.queries)
+    #'sql': 'SELECT `book`.`id`, `book`.`pages`, `book`.`price`, `book`.`rating`, `book`.`author_id`, `book`.`publisher_id` FROM `book`
+    #上面的sql语句过滤掉了 book.id语句
+
+    books = Book.objects.only("name")#只提取一个name
+    for book in books:
+        print(book.id,book.name)
+        print(type(book))#<class 'front.models.Book'> 类的模型
+    print(connection.queries)
+    # {'sql': 'SELECT `book`.`id`, `book`.`name` FROM `book`', 'time': '0.000'}
+
+    return HttpResponse('index8')

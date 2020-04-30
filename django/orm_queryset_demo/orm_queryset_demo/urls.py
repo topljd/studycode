@@ -17,5 +17,5 @@ from django.contrib import admin
 from django.urls import path
 from front import views as front_views
 urlpatterns = [
-    path('', front_views.index7),
+    path('', front_views.index8),
 ]
