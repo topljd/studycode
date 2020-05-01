@@ -1,4 +1,4 @@
-"""orm_queryset_demo URL Configuration
+"""table_to_orm URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/
@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from front import views as front_views
+from front import views as fornt_views
+
 urlpatterns = [
-    path('', front_views.index15),
+    path('', fornt_views.index),
 ]
