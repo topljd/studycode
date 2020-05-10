@@ -1,4 +1,4 @@
-"""httpresponse_demo URL Configuration
+"""generate_csv_demo URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/
@@ -17,6 +17,6 @@ from django.contrib import admin
 from django.urls import path
 from . import views
 urlpatterns = [
-    path('', views.index),
-    path('json', views.jsonresponse_view),
+    path('', views.laege_csv_view),
+    path('tp/', views.template_views_csv),
 ]

@@ -1,4 +1,4 @@
-"""httpresponse_demo URL Configuration
+"""class_view_demo URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/
@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path
 from . import views
 urlpatterns = [
-    path('', views.index),
-    path('json', views.jsonresponse_view),
+    path('', views.index,name='index'),
+    path('book/', views.BookListView.as_view(),name='book_list'),
+
+
 ]
