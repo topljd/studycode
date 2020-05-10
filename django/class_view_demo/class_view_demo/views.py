@@ -15,4 +15,4 @@ class AddBookView(View):
     def get(self,request,*args,**kwargs):
         return render(request,'add_book.html')
     def post(self,request,*args,**kwargs):
-        return render(reque st,'add_book.html')
+        return render(request,'add_book.html')
