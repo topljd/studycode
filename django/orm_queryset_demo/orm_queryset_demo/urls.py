@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from front import views as front_views
+from front import views
 urlpatterns = [
-    path('', front_views.index15),
+    path('', views.index),
 ]

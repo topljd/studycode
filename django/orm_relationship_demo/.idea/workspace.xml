@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="755383c1-7bfe-4ca7-9a50-de8d304325e0" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1aGHayJDa5Uhx4rqgBywjwHi1mt" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration name="orm_relationship_demo" type="Python.DjangoServer" factoryName="Django server" singleton="false">
+      <module name="orm_relationship_demo" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="orm_relationship_demo.settings" />
+      </envs>
+      <option name="SDK_HOME" value="G:\ENV\django_env\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8001" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="755383c1-7bfe-4ca7-9a50-de8d304325e0" name="Default Changelist" comment="" />
+      <created>1586355077123</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1586355077123</updated>
+      <workItem from="1586355080960" duration="569000" />
+      <workItem from="1586398910672" duration="1689000" />
+      <workItem from="1586407123787" duration="2071000" />
+      <workItem from="1586422564566" duration="2834000" />
+      <workItem from="1586495145448" duration="165000" />
+      <workItem from="1586495342407" duration="844000" />
+      <workItem from="1586496218377" duration="5655000" />
+      <workItem from="1586506641762" duration="3002000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="217" y="48" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586496877494">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="217" y="48" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1586496877494" />
+    <state x="324" y="113" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1586407022539">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="324" y="113" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.738@0.0.1366.738" timestamp="1586407022539" />
+    <state width="930" height="105" key="GridCell.Tab.0.bottom" timestamp="1586511979557">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="930" height="105" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1586511979557" />
+    <state width="930" height="105" key="GridCell.Tab.0.center" timestamp="1586511979556">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="930" height="105" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1586511979556" />
+    <state width="930" height="105" key="GridCell.Tab.0.left" timestamp="1586511979556">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="930" height="105" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1586511979556" />
+    <state width="930" height="105" key="GridCell.Tab.0.right" timestamp="1586511979557">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="930" height="105" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1586511979557" />
+    <state x="267" y="199" key="com.intellij.ide.util.TipDialog" timestamp="1586506668158">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="267" y="199" key="com.intellij.ide.util.TipDialog/0.0.1366.738@0.0.1366.738" timestamp="1586506668158" />
+  </component>
+</project>

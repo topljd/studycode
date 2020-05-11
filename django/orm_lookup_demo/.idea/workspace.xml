@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="36ee6da5-debf-4756-8971-4d649633cc0b" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="orm_lookup_demo@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="orm_lookup_demo@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="orm_lookup_demo@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="orm_lookup_demo: schema" type="76f4a085:MysqlImplModel$Schema" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="ProjectId" id="1aLPcWSfAkcP56oCKG7jG26Pf3d" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RunManager">
+    <configuration name="orm_lookup_demo" type="Python.DjangoServer" factoryName="Django server" singleton="false">
+      <module name="orm_lookup_demo" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="orm_lookup_demo.settings" />
+      </envs>
+      <option name="SDK_HOME" value="G:\ENV\django_env\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8002" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="36ee6da5-debf-4756-8971-4d649633cc0b" name="Default Changelist" comment="" />
+      <created>1586511980083</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1586511980083</updated>
+      <workItem from="1586511984806" duration="980000" />
+      <workItem from="1586513003184" duration="1583000" />
+      <workItem from="1586521342248" duration="8386000" />
+      <workItem from="1586554648801" duration="3845000" />
+      <workItem from="1586558856146" duration="852000" />
+      <workItem from="1586573296874" duration="3101000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="356" y="115" width="805" height="532" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586514020214">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="356" y="115" width="805" height="532" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1586514020214" />
+    <state width="254" height="195" key="DatabaseViewActions_Filter" timestamp="1586513474053">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="254" height="195" key="DatabaseViewActions_Filter/0.0.1366.738@0.0.1366.738" timestamp="1586513474053" />
+    <state width="1075" height="93" key="GridCell.Tab.0.bottom" timestamp="1586584845499">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1075" height="93" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1586584845499" />
+    <state width="1075" height="93" key="GridCell.Tab.0.center" timestamp="1586584845498">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1075" height="93" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1586584845498" />
+    <state width="1075" height="93" key="GridCell.Tab.0.left" timestamp="1586584845498">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1075" height="93" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1586584845498" />
+    <state width="1075" height="93" key="GridCell.Tab.0.right" timestamp="1586584845498">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1075" height="93" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1586584845498" />
+    <state width="220" height="477" key="HiddenNamespacesPopup" timestamp="1586513150810">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="220" height="477" key="HiddenNamespacesPopup/0.0.1366.738@0.0.1366.738" timestamp="1586513150810" />
+    <state x="0" y="22" key="SettingsEditor" timestamp="1586522679623">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="0" y="22" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1586522679623" />
+    <state x="246" y="313" key="com.intellij.ide.util.TipDialog" timestamp="1586573298883">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="246" y="313" key="com.intellij.ide.util.TipDialog/0.0.1366.738@0.0.1366.738" timestamp="1586573298883" />
+  </component>
+</project>
