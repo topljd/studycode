@@ -14,11 +14,20 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
 from . import views
+from django.views.generic import TemplateView
 urlpatterns = [
     path('', views.index,name='index'),
     path('book/', views.BookListView.as_view(),name='book_list'),
+    #path('add/', views.AddBookView.as_view(),name='add_book'),
+    path('detail/<book_id>', views.BookDetailView.as_view(),name='book_detail'),
+
+    #一定要传入book_id参数
+    #如果渲染不需要使用传递参数，那么建议在urls中使用TemplateView
+    #path('about/', TemplateView.as_view(template_name='about.html')),
+    path('about/', views.AboutView.as_view(template_name='about.html')),
+    path('article/',include('article.urls'))
 
 
 ]
