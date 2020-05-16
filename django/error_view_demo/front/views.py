@@ -5,4 +5,4 @@ def index(request):
     username = request.GET.get('username')
     if not username:
         return redirect(reverse('error:403'))
-    return HttpResponse('shouye')
+    return render(request,'404.html')
