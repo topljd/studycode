@@ -9,4 +9,4 @@ class Book(models.Model):
 class User(models.Model):
     username = models.CharField(max_length=100)
     password = models.CharField(max_length=16)
-    telephone = models.CharField(max_length=11)
+    telephone = models.CharField(max_length=11,validators=[validators.RegexValidator(r'1[3456789]\d{9}')])

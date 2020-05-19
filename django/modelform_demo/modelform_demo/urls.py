@@ -17,5 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from front import views
 urlpatterns = [
+    path('', views.index),
     path('add_book/', views.add_book),
+    path('register/', views.register),
 ]
