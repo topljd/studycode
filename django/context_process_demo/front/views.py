@@ -5,8 +5,10 @@ from .forms import SignupForm,SigninForm
 from .models import User
 from django.template.context_processors import debug,request
 from django.contrib.auth.context_processors import auth
+from django.contrib import messages
+#from django.contrib.messages.context_processors import messages
 # Create your views here.
-
+# 上下文处理器 message
 def index(request):
     # user_id = request.session.get('user_id')
     # context={
@@ -40,7 +42,12 @@ class SigninView(View):
                 return redirect(reverse('index'))
             else:
                 print('用户或密码错误')
-                return redirect(reverse('signin'))
+
+                #messages
+                #messages.add_message(request,messages.INFO,'用户或密码错误')
+                messages.info(request,'用户名或者密码错误')
+
+                return redirect(reverse('signin'))##signin是URL的名称
         else:
             print('填写错误')
             return redirect(reverse('signin'))
@@ -61,7 +68,7 @@ class SignupView(View):
             return redirect(reverse('signup'))
 
 def blog(request):
-    return render(request,'blog.html')
+    return render(request,'blog.h tml')
 
 def video(request):
     return render(request,'video.html')
